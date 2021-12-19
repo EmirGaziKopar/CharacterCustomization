@@ -7,11 +7,21 @@ using System;
 
 public class AttributeController : MonoBehaviour
 {
+
+
+    public enum SelectScene
+    {
+        gameScene, customizationScene
+    }
+
+    [SerializeField] SelectScene selectScene;
+
     //Kayýt etme iþlemini ya bu dizinde gerçekleþtir ya da tüm özelliklerin girildiði InputController'da 
     //Þuan için o kýsmý pek bilmediðimden karar veremiyorum yarýn öðrendikten sonra karar ver.
 
     [SerializeField] GameObject inputControllerGameObject;
     InputController controller; //Buradaki bütün deðerlere ulaþabiliriz. 
+
 
 
     [SerializeField] GameObject objectControllerPointerHead;
@@ -39,7 +49,11 @@ public class AttributeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = inputControllerGameObject.GetComponent<InputController>();
+        if(selectScene == SelectScene.customizationScene)
+        {
+            controller = inputControllerGameObject.GetComponent<InputController>();
+        }
+        
 
         headObjetController = objectControllerPointerHead.GetComponent<ObjectController>();
         
@@ -47,7 +61,7 @@ public class AttributeController : MonoBehaviour
 
     public void bilgleriKaydet()
     {
-        if(jump != 0 && nameAl.text != null && speed != 0 && power != 0 && controller.weightt != 0 && controller.heightt != 0)
+        if(jump != 0 && nameAl.text != null && speed != 0 && power != 0 && controller.weightt != 0 && controller.heightt != 0 && selectScene == SelectScene.customizationScene)
         {
             jsonSave jsonSave = GetComponent<jsonSave>(); //ayný gameObject üzerinde olduklarý için bu yeterli
 
@@ -97,14 +111,14 @@ public class AttributeController : MonoBehaviour
     {
         jsonSave jsonSave = GetComponent<jsonSave>();
         okunanBilgi = jsonSave.bilgiler_oku();
-
+        nameAl.text = okunanBilgi.nameAl;
         /*Dash = okunanBilgi.Dash;
         Fly = okunanBilgi.Fly;
         Ghost = okunanBilgi.Ghost;
         headObjetController.indis = okunanBilgi.headIndis;
         height = okunanBilgi.height;
         weight = okunanBilgi.weight;
-        nameAl.text = okunanBilgi.nameAl;*/ 
+        nameAl.text = okunanBilgi.nameAl;*/
     }
 
     // Update is called once per frame
@@ -133,10 +147,11 @@ public class AttributeController : MonoBehaviour
 
 
             }
-            else
+            if(selectScene == SelectScene.gameScene)
             {
                 BilgileriOku();
             }
+            
 
         }
         catch

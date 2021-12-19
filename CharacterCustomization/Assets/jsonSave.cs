@@ -4,6 +4,8 @@ using UnityEngine;
 
 
 
+
+
 [System.Serializable]
 public class Bilgiler
 {
@@ -70,7 +72,7 @@ public class jsonSave : MonoBehaviour
     public  Bilgiler bilgiler_oku()
     {
      
-        string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim "+buttonDegeri.ToString() + ".json");
+        string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim"+buttonDegeri.ToString() + ".json");
         Bilgiler okunanBilgi = JsonUtility.FromJson<Bilgiler>(jsonVeri);
         return okunanBilgi;
     }

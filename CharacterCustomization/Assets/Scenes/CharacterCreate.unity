@@ -6668,6 +6668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9828c353d26d6a54292458e4c0cf85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectScene: 1
   inputControllerGameObject: {fileID: 135017045}
   objectControllerPointerHead: {fileID: 408036217292748460}
   objectControllerPointerFoot: {fileID: 408036217965229920}
