@@ -3999,10 +3999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dizi:
   - {fileID: 3515550342539149220}
-  - {fileID: 3515550342539149220}
   - {fileID: 3515550343749048058}
   - {fileID: 3515550343642054485}
   - {fileID: 3515550342920277915}
+  - {fileID: 3515550344265591297}
   indis: 0
 --- !u!1 &1364025162019952483
 GameObject:
