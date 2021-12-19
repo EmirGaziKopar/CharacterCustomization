@@ -6654,8 +6654,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9828c353d26d6a54292458e4c0cf85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveCharacters: []
   inputControllerGameObject: {fileID: 135017045}
   nameAl: {fileID: 1637982016}
+  okunanBilgi:
+    BilgiHavuzu: []
 --- !u!4 &4150967805121202140
 Transform:
   m_ObjectHideFlags: 0

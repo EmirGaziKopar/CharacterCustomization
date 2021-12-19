@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class AttributeController : MonoBehaviour
 {
+    public List<Bilgiler> saveCharacters;
+    
     //Kayýt etme iþlemini ya bu dizinde gerçekleþtir ya da tüm özelliklerin girildiði InputController'da 
     //Þuan için o kýsmý pek bilmediðimden karar veremiyorum yarýn öðrendikten sonra karar ver.
 
@@ -40,22 +42,38 @@ public class AttributeController : MonoBehaviour
 
         jsonSave jsonSave = GetComponent<jsonSave>(); //ayný gameObject üzerinde olduklarý için bu yeterli
         Bilgiler bilgiler = new Bilgiler();
-        bilgiler.Dash = Dash;
-        bilgiler.Fly = Fly;
-        bilgiler.Ghost = Ghost;
-        bilgiler.footIndis = footIndis;
-        bilgiler.headIndis = headIndis;
-        bilgiler.jump = jump;
-        bilgiler.nameAl = nameAl.text;
-        bilgiler.power = power;
-        bilgiler.speed = speed;
+
+        BilgiHavuzu bilgiHavuzu1 = new BilgiHavuzu();
+
+
+
+        bilgiHavuzu1.Dash = Dash;
+        bilgiHavuzu1.Fly = Fly;
+        bilgiHavuzu1.Ghost = Ghost;
+        bilgiHavuzu1.footIndis = footIndis;
+        bilgiHavuzu1.headIndis = headIndis;
+        bilgiHavuzu1.jump = jump;
+        bilgiHavuzu1.nameAl = nameAl.text;
+        bilgiHavuzu1.power = power;
+        bilgiHavuzu1.speed = speed;
+
+        bilgiler.BilgiHavuzu.Add(bilgiHavuzu1); //Burada bilgiler.BilgiHavuzu... diyerek istenildiði kadar obje eklenebilir fakat bizim bunu otomatikleþtirmemiz lazým. Sanýrým zaten otomatik
+
+        jsonSave.json_Kaydet(bilgiler); //information saved 
         
+
+        //daha sonra bu kaydedilen verileri bir diziye aktarýp birden fazla karakterin bilgilerini kaydetmeyi dene
+
     }
 
+    public Bilgiler okunanBilgi; 
 
     public void BilgileriOku() //hata vermesin diye void yazdým þimdilik. Gerçi zaten yükleyeceðimiz veriler bu izinde olduðu için return kullanmayýz  
     {
-
+        jsonSave jsonSave = GetComponent<jsonSave>();
+        okunanBilgi = jsonSave.bilgiler_oku();  //Bu okunan bilgiyi bir liste oluþturup içerisinde yerleþtirme iþlemini denemelerden sonra yap 
+        //okunanBilgi.BilgiHavuzu[0] boyle bir kullanýmý varsa süper buttonlara bu þekilde atarýz. Dolu olan buttonlarý yeþil boþ olanlarý kýrmýzý felan yaparýz.
+        //hata vakit kalýrsa button üzerinde karakterin özellikleri olur.
     }
 
     // Update is called once per frame
