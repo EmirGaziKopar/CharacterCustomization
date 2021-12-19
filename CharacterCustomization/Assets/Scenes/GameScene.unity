@@ -1372,7 +1372,6 @@ MonoBehaviour:
   - {fileID: 186942678}
   - {fileID: 360007963}
   - {fileID: 451650031}
-  - {fileID: 467614128}
   - {fileID: 873327659}
   indis: 0
 --- !u!4 &936388447
@@ -2673,7 +2672,7 @@ GameObject:
   - component: {fileID: 1936546460}
   - component: {fileID: 1936546461}
   m_Layer: 0
-  m_Name: stilettos-g0fc8e1454_1280
+  m_Name: foot-woman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

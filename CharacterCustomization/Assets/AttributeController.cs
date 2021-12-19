@@ -122,7 +122,7 @@ public class AttributeController : MonoBehaviour
         height = okunanBilgi.height;
         weight = okunanBilgi.weight;
         nameAl.text = okunanBilgi.nameAl;
-        
+        transform.localScale = new Vector3(weight, height, transform.localScale.z);
 
     }
     public Bilgiler okunanBilgi; 
