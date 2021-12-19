@@ -6669,8 +6669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputControllerGameObject: {fileID: 135017045}
-  objectControllerPointerHead: {fileID: 0}
-  objectControllerPointerFoot: {fileID: 0}
+  objectControllerPointerHead: {fileID: 408036217292748460}
+  objectControllerPointerFoot: {fileID: 408036217965229920}
   nameAl: {fileID: 1637982016}
   okunanBilgi:
     footIndis: 0

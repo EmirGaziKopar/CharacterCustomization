@@ -58,7 +58,9 @@ public class jsonSave : MonoBehaviour
         if (sayac <= 4) //Buradaki deðer artýrýlarak kaydedilecek karakter sayýsýný dinamik bir hale getirebiliriz. Ama buttonlarýn nasýl dinamik yapýcaz o ayrý mesele listView benzeri yapýlarla oda olur.
         {
             string jsonBilgiler = JsonUtility.ToJson(bilgiler); //json'a çevirdik
-            System.IO.File.WriteAllText(Application.persistentDataPath + "/Bilgilerim.json" + sayac.ToString(), jsonBilgiler); //kayit ettik
+            System.IO.File.WriteAllText(Application.persistentDataPath + "/Bilgilerim"+ sayac.ToString()+".json", jsonBilgiler); //kayit ettik
+            Debug.Log(Application.persistentDataPath);
+
         }
         else
         {
@@ -68,7 +70,7 @@ public class jsonSave : MonoBehaviour
     public  Bilgiler bilgiler_oku()
     {
      
-        string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim.json"+buttonDegeri.ToString());
+        string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim "+buttonDegeri.ToString() + ".json");
         Bilgiler okunanBilgi = JsonUtility.FromJson<Bilgiler>(jsonVeri);
         return okunanBilgi;
     }
