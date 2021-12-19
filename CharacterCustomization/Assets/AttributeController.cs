@@ -111,32 +111,40 @@ public class AttributeController : MonoBehaviour
     void Update()
     {
         
-        if(controller != null)
+
+        try
         {
 
-            transform.localScale = new Vector3(controller.weightt, controller.heightt, transform.localScale.z);
-            nameAl.text = controller.TextName.text;
-            footIndis = controller.footIndis;
-            headIndis = controller.headIndis;
-            Dash = controller.Dash;
-            Fly = controller.Fly;
-            Ghost = controller.Ghost;
-            speed = Convert.ToSingle(controller.TextSpeed.text);
-            jump = Convert.ToSingle(controller.TextPower.text);
-            power = Convert.ToSingle(controller.TextPower.text);
+            if (controller != null)
+            {
 
 
+                transform.localScale = new Vector3(controller.weightt, controller.heightt, transform.localScale.z);
+                nameAl.text = controller.TextName.text;
+                footIndis = controller.footIndis;
+                headIndis = controller.headIndis;
+                Dash = controller.Dash;
+                Fly = controller.Fly;
+                Ghost = controller.Ghost;
+                speed = Convert.ToSingle(controller.TextSpeed.text);
+                jump = Convert.ToSingle(controller.TextPower.text);
+                power = Convert.ToSingle(controller.TextPower.text);
+
+
+
+            }
+            else
+            {
+                BilgileriOku();
+            }
 
         }
-        else
+        catch
         {
-            BilgileriOku();
+            Debug.Log("Hata var");
         }
-        
-        Debug.Log("degerler: " + controller.weightt + " " + controller.heightt);
-        
-        
-        
+
+
 
     }
 }
