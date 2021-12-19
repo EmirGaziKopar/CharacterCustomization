@@ -27,6 +27,9 @@ public class jsonSave : MonoBehaviour
 {
     int sayac;
     int buttonDegeri;
+    public bool isFull;
+
+
 
     private void Start()
     {
@@ -62,10 +65,12 @@ public class jsonSave : MonoBehaviour
             string jsonBilgiler = JsonUtility.ToJson(bilgiler); //json'a çevirdik
             System.IO.File.WriteAllText(Application.persistentDataPath + "/Bilgilerim"+ sayac.ToString()+".json", jsonBilgiler); //kayit ettik
             Debug.Log(Application.persistentDataPath);
+            isFull = false;
 
         }
         else
         {
+            isFull = true;
             //slotlar dolu mesaji döndür
         }
     }

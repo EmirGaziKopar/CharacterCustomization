@@ -366,6 +366,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3515550342829167213}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: yerlestir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &291509578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +894,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3515550342829167213}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: yerlestir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &937257635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,6 +1042,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3515550342829167213}
         m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
         m_MethodName: BilgileriOku
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3515550342829167213}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: yerlestir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1229,6 +1265,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3515550342829167213}
         m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
         m_MethodName: BilgileriOku
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3515550342829167213}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: yerlestir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1644,7 +1692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.04, y: 1.12}
+  m_AnchoredPosition: {x: -0.04, y: 1.33}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &671754672766064601
@@ -2015,6 +2063,8 @@ MonoBehaviour:
   objectControllerPointerHead: {fileID: 1364025161074939567}
   objectControllerPointerFoot: {fileID: 1364025162019952483}
   nameAl: {fileID: 671754672238290747}
+  footIndis: 0
+  headIndis: 0
   okunanBilgi:
     footIndis: 0
     headIndis: 0
@@ -3415,3 +3465,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0d1177be26f0d4cbe138e9b53f01cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFull: 0

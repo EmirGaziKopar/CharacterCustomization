@@ -9,6 +9,9 @@ public class AttributeController : MonoBehaviour
 {
 
 
+    
+
+
     public enum SelectScene
     {
         gameScene, customizationScene
@@ -26,7 +29,7 @@ public class AttributeController : MonoBehaviour
 
     [SerializeField] GameObject objectControllerPointerHead;
     [SerializeField] GameObject objectControllerPointerFoot;
-    ObjectController headObjetController;
+    ObjectController headObjectController;
     ObjectController footObjectController;
 
     float height = 0;
@@ -40,8 +43,8 @@ public class AttributeController : MonoBehaviour
     bool Ghost;
     [SerializeField] TMP_Text nameAl = null;
     string name; //doðrudan obje üzerine bir tmp textaçýlýp buraya gelen name deðeri oraya gönderilmelidir veya direk burada tmp_Inputfield oluþtur onu buraya sürükle
-    int footIndis; //Bunlar objectController içerisindeki foot objecsinin içindeki indis deðeri yerine girilecek(oyun baþlamadan önce start'da veya awake'de)
-    int headIndis; //Bunlar objectController içerisindeki head objecsinin içindeki indis deðeri yerine girilecek(oyun baþlamadan önce start'da veya awake'de)
+    public int footIndis; //Bunlar objectController içerisindeki foot objecsinin içindeki indis deðeri yerine girilecek(oyun baþlamadan önce start'da veya awake'de)
+    public int headIndis; //Bunlar objectController içerisindeki head objecsinin içindeki indis deðeri yerine girilecek(oyun baþlamadan önce start'da veya awake'de)
 
     
 
@@ -55,8 +58,10 @@ public class AttributeController : MonoBehaviour
         }
         
 
-        headObjetController = objectControllerPointerHead.GetComponent<ObjectController>();
-        
+        headObjectController = objectControllerPointerHead.GetComponent<ObjectController>();
+        footObjectController = objectControllerPointerFoot.GetComponent<ObjectController>();
+
+
     }
 
     public void bilgleriKaydet()
@@ -77,12 +82,26 @@ public class AttributeController : MonoBehaviour
             bilgiler.speed = speed;
             bilgiler.weight = controller.weightt;
             bilgiler.height = controller.heightt;
+            bilgiler.headIndis = headObjectController.indis;            
+            bilgiler.footIndis = footObjectController.indis;
             jsonSave.json_Kaydet(bilgiler); //information saved
-            controller.alertText.color = Color.green;
-            controller.alertText.text = "karakter oluþturuldu";
+            if (gameObject.GetComponent<jsonSave>().isFull == true)
+            {
+                controller.alertText.color = Color.red;
+                controller.alertText.text = "Slotlar doldu";
+            }
+            else
+            {
+                controller.alertText.color = Color.green;
+                controller.alertText.text = "karakter oluþturuldu";
+            }
+            
+            
+
         }
         else
         {
+            
             controller.alertText.text = "Halen Girilmeyen degerler var !!!";
         }
          
@@ -98,11 +117,12 @@ public class AttributeController : MonoBehaviour
         Dash = okunanBilgi.Dash;
         Fly = okunanBilgi.Fly;
         Ghost = okunanBilgi.Ghost;
-        headObjetController.indis = okunanBilgi.headIndis;
+        headObjectController.indis = okunanBilgi.headIndis;
         footObjectController.indis = okunanBilgi.footIndis;
         height = okunanBilgi.height;
         weight = okunanBilgi.weight;
         nameAl.text = okunanBilgi.nameAl;
+        
 
     }
     public Bilgiler okunanBilgi; 
@@ -111,6 +131,7 @@ public class AttributeController : MonoBehaviour
     {
         jsonSave jsonSave = GetComponent<jsonSave>();
         okunanBilgi = jsonSave.bilgiler_oku();
+        
         nameAl.text = okunanBilgi.nameAl;
         /*Dash = okunanBilgi.Dash;
         Fly = okunanBilgi.Fly;
@@ -131,18 +152,33 @@ public class AttributeController : MonoBehaviour
 
             if (controller != null)
             {
-
+                if(controller.TextName.text != "")
+                {
+                    nameAl.text = controller.TextName.text;
+                }
+                if(controller.TextSpeed.text != "")
+                {
+                    speed = Convert.ToSingle(controller.TextSpeed.text);
+                }
+                if(controller.TextPower.text != "")
+                {
+                    jump = Convert.ToSingle(controller.TextPower.text);
+                }
+                if (controller.TextPower.text != "")
+                {
+                    power = Convert.ToSingle(controller.TextPower.text);
+                }
 
                 transform.localScale = new Vector3(controller.weightt, controller.heightt, transform.localScale.z);
-                nameAl.text = controller.TextName.text;
+                
                 footIndis = controller.footIndis;
                 headIndis = controller.headIndis;
                 Dash = controller.Dash;
                 Fly = controller.Fly;
                 Ghost = controller.Ghost;
-                speed = Convert.ToSingle(controller.TextSpeed.text);
-                jump = Convert.ToSingle(controller.TextPower.text);
-                power = Convert.ToSingle(controller.TextPower.text);
+                
+                
+                
 
 
 
