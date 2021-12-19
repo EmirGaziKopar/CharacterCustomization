@@ -7,7 +7,7 @@ public class ObjectController : MonoBehaviour
     
 
     [SerializeField] GameObject[] dizi = new GameObject[5];
-    int indis;
+    public int indis;
     // Start is called before the first frame update
     void Start()
     {
