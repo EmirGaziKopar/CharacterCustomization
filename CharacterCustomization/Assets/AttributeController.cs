@@ -35,6 +35,29 @@ public class AttributeController : MonoBehaviour
 
     }
 
+    public void bilgleriKaydet()
+    {
+
+        jsonSave jsonSave = GetComponent<jsonSave>(); //ayný gameObject üzerinde olduklarý için bu yeterli
+        Bilgiler bilgiler = new Bilgiler();
+        bilgiler.Dash = Dash;
+        bilgiler.Fly = Fly;
+        bilgiler.Ghost = Ghost;
+        bilgiler.footIndis = footIndis;
+        bilgiler.headIndis = headIndis;
+        bilgiler.jump = jump;
+        bilgiler.nameAl = nameAl.text;
+        bilgiler.power = power;
+        bilgiler.speed = speed;
+        
+    }
+
+
+    public void BilgileriOku() //hata vermesin diye void yazdým þimdilik. Gerçi zaten yükleyeceðimiz veriler bu izinde olduðu için return kullanmayýz  
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
