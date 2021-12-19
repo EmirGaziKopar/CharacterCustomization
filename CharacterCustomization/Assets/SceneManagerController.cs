@@ -21,4 +21,8 @@ public class SceneManagerController : MonoBehaviour
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
+    public void changeScene2()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
 }
