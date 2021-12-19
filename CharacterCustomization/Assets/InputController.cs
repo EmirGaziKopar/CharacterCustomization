@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
-    int footIndis;
-    int headIndis;
+    public int footIndis;
+    public int headIndis;
     ObjectController FootObjectController;
     [SerializeField] GameObject pointerFootObjectController;
     ObjectController HeadObjectController;
@@ -22,13 +22,13 @@ public class InputController : MonoBehaviour
     [SerializeField] public TMP_InputField height;
     public float weightt;
     public float heightt;
-    [SerializeField] TMP_Text alertText;
+    [SerializeField] public TMP_Text alertText;
 
     float time;
 
-    [SerializeField] Toggle Dash;
-    [SerializeField] Toggle Fly;
-    [SerializeField] Toggle Ghost;
+    [SerializeField] public Toggle Dash;
+    [SerializeField] public Toggle Fly;
+    [SerializeField] public Toggle Ghost;
 
     // Start is called before the first frame update
     void Start()

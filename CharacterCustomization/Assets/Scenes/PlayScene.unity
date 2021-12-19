@@ -295,7 +295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 607, y: 420}
+  m_AnchoredPosition: {x: 590, y: 420}
   m_SizeDelta: {x: 50.3386, y: 50.0997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291509577
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.050980393, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -799,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 207, y: 420}
+  m_AnchoredPosition: {x: 190, y: 420}
   m_SizeDelta: {x: 50.3386, y: 50.0997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937257634
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.050980393, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -932,7 +932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193, y: 420}
+  m_AnchoredPosition: {x: -210, y: 420}
   m_SizeDelta: {x: 50.3386, y: 50.0997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299904633
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.050980393, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1131,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -590, y: 420}
+  m_AnchoredPosition: {x: -607, y: 420}
   m_SizeDelta: {x: 50.3386, y: 50.0997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845708124
@@ -1190,6 +1190,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3515550342829167213}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: yerlestir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1845708125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,7 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.04937911, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1962,11 +1974,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9828c353d26d6a54292458e4c0cf85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveCharacters: []
   inputControllerGameObject: {fileID: 0}
+  objectControllerPointerHead: {fileID: 0}
+  objectControllerPointerFoot: {fileID: 0}
   nameAl: {fileID: 671754672238290747}
   okunanBilgi:
-    BilgiHavuzu: []
+    footIndis: 0
+    headIndis: 0
+    speed: 0
+    jump: 0
+    power: 0
+    Dash: 0
+    Fly: 0
+    Ghost: 0
+    nameAl: 
 --- !u!4 &3515550342829167214
 Transform:
   m_ObjectHideFlags: 0

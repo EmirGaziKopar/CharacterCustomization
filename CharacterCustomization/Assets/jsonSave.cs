@@ -7,25 +7,19 @@ using UnityEngine;
 [System.Serializable]
 public class Bilgiler
 {
-    public List<BilgiHavuzu> BilgiHavuzu = new List<BilgiHavuzu>();  
-}
-
-[System.Serializable]
-public class BilgiHavuzu
-{
     public int footIndis; //dýþarýdan buraya indis deðerini gireceðim yani kaydedeceðim 
     public int headIndis;
     public float speed;
     public float jump;
     public float power; //güçlü þutu temsil eder
+    public float weight;
+    public float height;
     public bool Dash;
     public bool Fly;
     public bool Ghost;
     public string nameAl;
+
 }
-
-
-
 
 public class jsonSave : MonoBehaviour
 {
@@ -61,7 +55,7 @@ public class jsonSave : MonoBehaviour
     public void json_Kaydet(Bilgiler bilgiler)
     {
         sayac++;
-        if (sayac <= 4)
+        if (sayac <= 4) //Buradaki deðer artýrýlarak kaydedilecek karakter sayýsýný dinamik bir hale getirebiliriz. Ama buttonlarýn nasýl dinamik yapýcaz o ayrý mesele listView benzeri yapýlarla oda olur.
         {
             string jsonBilgiler = JsonUtility.ToJson(bilgiler); //json'a çevirdik
             System.IO.File.WriteAllText(Application.persistentDataPath + "/Bilgilerim.json" + sayac.ToString(), jsonBilgiler); //kayit ettik

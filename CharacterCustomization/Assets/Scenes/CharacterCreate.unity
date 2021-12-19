@@ -772,6 +772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df759ce08aa852542b9f6d569ecef72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footIndis: 0
+  headIndis: 0
   pointerFootObjectController: {fileID: 408036217965229920}
   pointerHeadFootObjectController: {fileID: 408036217292748460}
   TextName: {fileID: 1524631976}
@@ -2903,7 +2905,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 899575947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4150967804831246870}
+        m_TargetAssemblyTypeName: AttributeController, Assembly-CSharp
+        m_MethodName: bilgleriKaydet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &899575947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6654,11 +6668,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9828c353d26d6a54292458e4c0cf85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveCharacters: []
   inputControllerGameObject: {fileID: 135017045}
+  objectControllerPointerHead: {fileID: 0}
+  objectControllerPointerFoot: {fileID: 0}
   nameAl: {fileID: 1637982016}
   okunanBilgi:
-    BilgiHavuzu: []
+    footIndis: 0
+    headIndis: 0
+    speed: 0
+    jump: 0
+    power: 0
+    weight: 0
+    height: 0
+    Dash: 0
+    Fly: 0
+    Ghost: 0
+    nameAl: 
 --- !u!4 &4150967805121202140
 Transform:
   m_ObjectHideFlags: 0
