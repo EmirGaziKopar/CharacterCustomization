@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
+
+    jsonSave json;
+    [SerializeField] GameObject JasonPointer;
+
     public int footIndis;
     public int headIndis;
     ObjectController FootObjectController;
@@ -33,6 +37,9 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        json = JasonPointer.GetComponent<jsonSave>();
+
         //gösterecek olduðumuz indislerin deðerlerini alýyoruz bunlarýn hepsini json olarak kaydedeceðiz
         FootObjectController = pointerFootObjectController.GetComponent<ObjectController>();
         footIndis = FootObjectController.indis;
@@ -51,10 +58,26 @@ public class InputController : MonoBehaviour
         
         time = 0;
     }
+    public Bilgiler okunanBilgi;
 
     // Update is called once per frame
     void Update()
-    {               
+    {
+         
+        if(json != null)
+        {
+            okunanBilgi = json.bilgiler_oku();
+            TextName.text = okunanBilgi.nameAl;
+            TextSpeed.text = okunanBilgi.speed.ToString();
+            TextPower.text = okunanBilgi.power.ToString();
+            TextJump.text = okunanBilgi.jump.ToString();
+            weight.text = okunanBilgi.weight.ToString();            
+            height.text = okunanBilgi.height.ToString();           
+            Dash.isOn = okunanBilgi.Dash;
+            Fly.isOn = okunanBilgi.Fly;
+            Ghost.isOn = okunanBilgi.Ghost;
+
+        }
         if(alertText.text != null)
         {
             time += Time.deltaTime;
