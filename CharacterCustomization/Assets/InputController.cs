@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
-
+    
     jsonSave json;
     [SerializeField] GameObject JasonPointer;
 
@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         json = JasonPointer.GetComponent<jsonSave>();
 
         //gösterecek olduðumuz indislerin deðerlerini alýyoruz bunlarýn hepsini json olarak kaydedeceðiz
@@ -64,18 +64,26 @@ public class InputController : MonoBehaviour
     void Update()
     {
          
-        if(json != null)
+        if(json != null && EditModeController.isOnEditMode == true)
         {
-            okunanBilgi = json.bilgiler_oku();
-            TextName.text = okunanBilgi.nameAl;
-            TextSpeed.text = okunanBilgi.speed.ToString();
-            TextPower.text = okunanBilgi.power.ToString();
-            TextJump.text = okunanBilgi.jump.ToString();
-            weight.text = okunanBilgi.weight.ToString();            
-            height.text = okunanBilgi.height.ToString();           
-            Dash.isOn = okunanBilgi.Dash;
-            Fly.isOn = okunanBilgi.Fly;
-            Ghost.isOn = okunanBilgi.Ghost;
+            try
+            {
+                okunanBilgi = json.bilgiler_oku();
+                TextName.text = okunanBilgi.nameAl;
+                TextSpeed.text = okunanBilgi.speed.ToString();
+                TextPower.text = okunanBilgi.power.ToString();
+                TextJump.text = okunanBilgi.jump.ToString();
+                weight.text = okunanBilgi.weight.ToString();
+                height.text = okunanBilgi.height.ToString();
+                Dash.isOn = okunanBilgi.Dash;
+                Fly.isOn = okunanBilgi.Fly;
+                Ghost.isOn = okunanBilgi.Ghost;
+            }
+            catch
+            {
+                alertText.text = "Henüz Oluþturulmuþ karakter yok";
+            }
+            
 
         }
         if(alertText.text != null)
