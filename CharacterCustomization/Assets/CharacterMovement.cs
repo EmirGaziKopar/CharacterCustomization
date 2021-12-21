@@ -40,6 +40,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * 0.01f);
@@ -54,7 +55,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 sayac++;
                 Vector2 a = new Vector2(transform.forward.x, jump);
-                rigidbody2D.velocity = a * jump;
+                rigidbody2D.velocity = a * jump * 0.1f;
             }
         }
         if (Input.GetMouseButton(0) && isTouch == true)
@@ -75,8 +76,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void shot()
     {
-        Vector3 vector3 = new Vector3(0.2f, 0.2f, 0);
+        Vector3 vector3 = new Vector3(1f, 0.6f, 0);
         Ball.velocity = vector3 * power;
+        isTouch = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -86,10 +88,7 @@ public class CharacterMovement : MonoBehaviour
             Ball = collision.gameObject.GetComponent<Rigidbody2D>();
             isTouch = true;           
         }
-        else
-        {
-            isTouch = false;
-        }
+        
     }
 
 

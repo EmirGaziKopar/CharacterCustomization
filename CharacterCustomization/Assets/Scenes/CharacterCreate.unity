@@ -6955,7 +6955,17 @@ MonoBehaviour:
   inputControllerGameObject: {fileID: 135017045}
   objectControllerPointerHead: {fileID: 408036217292748460}
   objectControllerPointerFoot: {fileID: 408036217965229920}
+  height: 0
+  weight: 0
+  speed: 0
+  jump: 0
+  power: 0
+  Dash: 0
+  Fly: 0
+  Ghost: 0
   nameAl: {fileID: 1637982016}
+  footIndis: 0
+  headIndis: 0
   okunanBilgi:
     footIndis: 0
     headIndis: 0
@@ -7384,3 +7394,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0d1177be26f0d4cbe138e9b53f01cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFull: 0

@@ -34,7 +34,7 @@ public class jsonSave : MonoBehaviour
     private void Start()
     {
         sayac = 0;
-        buttonDegeri = 1;
+        buttonDegeri = 0;
     }
     
 
