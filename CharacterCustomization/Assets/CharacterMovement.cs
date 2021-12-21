@@ -54,8 +54,8 @@ public class CharacterMovement : MonoBehaviour
             if (sayac == 0)
             {
                 sayac++;
-                Vector2 a = new Vector2(transform.forward.x, jump);
-                rigidbody2D.velocity = a * jump * 0.1f;
+                Vector2 a = new Vector2(transform.forward.x, 1f);
+                rigidbody2D.velocity = a * jump;
             }
         }
         if (Input.GetMouseButton(0) && isTouch == true)
