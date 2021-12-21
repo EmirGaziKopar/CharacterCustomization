@@ -32,15 +32,15 @@ public class AttributeController : MonoBehaviour
     ObjectController headObjectController;
     ObjectController footObjectController;
 
-    float height = 0;
-    float weight = 0;
+    public float height = 0;
+    public float weight = 0;
 
-    float speed = 0;
-    float jump = 0;
-    float power = 0; //güçlü þutu temsil eder
-    bool Dash;
-    bool Fly;
-    bool Ghost;
+    public float speed = 0;
+    public float jump = 0;
+    public float power = 0; //güçlü þutu temsil eder
+    public bool Dash;
+    public bool Fly;
+    public bool Ghost;
     [SerializeField] TMP_Text nameAl = null;
     string name; //doðrudan obje üzerine bir tmp textaçýlýp buraya gelen name deðeri oraya gönderilmelidir veya direk burada tmp_Inputfield oluþtur onu buraya sürükle
     public int footIndis; //Bunlar objectController içerisindeki foot objecsinin içindeki indis deðeri yerine girilecek(oyun baþlamadan önce start'da veya awake'de)
