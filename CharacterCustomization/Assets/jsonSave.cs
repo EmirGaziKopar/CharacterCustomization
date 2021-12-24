@@ -59,7 +59,13 @@ public class jsonSave : MonoBehaviour
     //Her kaydet'e basýldýðýnda yeni bir deðer eklenecek
     public void json_Kaydet(Bilgiler bilgiler)
     {
-        sayac++;
+
+
+        string jsonBilgiler = JsonUtility.ToJson(bilgiler); //json'a çevirdik
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/Bilgilerim" + buttonDegeri.ToString() + ".json", jsonBilgiler); //kayit ettik
+        Debug.Log(Application.persistentDataPath);
+        isFull = false;
+        /*sayac++;
         if (sayac <= 4) //Buradaki deðer artýrýlarak kaydedilecek karakter sayýsýný dinamik bir hale getirebiliriz. Ama buttonlarýn nasýl dinamik yapýcaz o ayrý mesele listView benzeri yapýlarla oda olur.
         {
             string jsonBilgiler = JsonUtility.ToJson(bilgiler); //json'a çevirdik
@@ -73,12 +79,25 @@ public class jsonSave : MonoBehaviour
             isFull = true;
             //slotlar dolu mesaji döndür
         }
+        */
     }
+
     public  Bilgiler bilgiler_oku()
     {
-     
-        string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim"+buttonDegeri.ToString() + ".json");
-        Bilgiler okunanBilgi = JsonUtility.FromJson<Bilgiler>(jsonVeri);
-        return okunanBilgi;
+        try
+        {
+            string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim" + buttonDegeri.ToString() + ".json");
+            Debug.Log(jsonVeri);
+            Bilgiler okunanBilgi = JsonUtility.FromJson<Bilgiler>(jsonVeri);
+            return okunanBilgi;
+        }
+        catch
+        {
+            return null;
+        }
+        
+        
+        
+        
     }
 }

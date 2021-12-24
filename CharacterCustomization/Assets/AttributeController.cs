@@ -113,26 +113,32 @@ public class AttributeController : MonoBehaviour
     
     public void yerlestir()
     {
-
-        Dash = okunanBilgi.Dash;
-        Fly = okunanBilgi.Fly;
-        Ghost = okunanBilgi.Ghost;
-        headObjectController.indis = okunanBilgi.headIndis;
-        footObjectController.indis = okunanBilgi.footIndis;
-        height = okunanBilgi.height;
-        weight = okunanBilgi.weight;
-        nameAl.text = okunanBilgi.nameAl;
-        transform.localScale = new Vector3(weight, height, transform.localScale.z);
-
+        if(okunanBilgi != null)
+        {
+            Dash = okunanBilgi.Dash;
+            Fly = okunanBilgi.Fly;
+            Ghost = okunanBilgi.Ghost;
+            headObjectController.indis = okunanBilgi.headIndis;
+            footObjectController.indis = okunanBilgi.footIndis;
+            height = okunanBilgi.height;
+            weight = okunanBilgi.weight;
+            nameAl.text = okunanBilgi.nameAl;
+            transform.localScale = new Vector3(weight, height, transform.localScale.z);
+        } 
     }
     public Bilgiler okunanBilgi; 
 
     public void BilgileriOku() //hata vermesin diye void yazdým þimdilik. Gerçi zaten yükleyeceðimiz veriler bu izinde olduðu için return kullanmayýz  
     {
         jsonSave jsonSave = GetComponent<jsonSave>();
-        okunanBilgi = jsonSave.bilgiler_oku();
+        okunanBilgi = jsonSave.bilgiler_oku();  
+        if(okunanBilgi == null)
+        {
+            controller.alertText.color = Color.red;
+            controller.alertText.text = "Bu kutu boþ";
+        }
         
-        nameAl.text = okunanBilgi.nameAl;
+        
         /*Dash = okunanBilgi.Dash;
         Fly = okunanBilgi.Fly;
         Ghost = okunanBilgi.Ghost;

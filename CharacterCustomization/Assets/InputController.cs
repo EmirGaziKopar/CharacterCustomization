@@ -81,7 +81,7 @@ public class InputController : MonoBehaviour
             }
             catch
             {
-                alertText.text = "Henüz Oluþturulmuþ karakter yok";
+                
             }
             
 
