@@ -9,8 +9,8 @@ public class AttributeController : MonoBehaviour
 {
 
 
-    
 
+    Rigidbody2D rigidbody2D;
 
     public enum SelectScene
     {
@@ -55,6 +55,11 @@ public class AttributeController : MonoBehaviour
         if(selectScene == SelectScene.customizationScene)
         {
             controller = inputControllerGameObject.GetComponent<InputController>();
+        }
+
+        if(selectScene == SelectScene.gameScene)
+        {
+            rigidbody2D = GetComponent<Rigidbody2D>();
         }
         
 
@@ -132,7 +137,7 @@ public class AttributeController : MonoBehaviour
     {
         jsonSave jsonSave = GetComponent<jsonSave>();
         okunanBilgi = jsonSave.bilgiler_oku();  
-        if(okunanBilgi == null)
+        if(okunanBilgi == null && selectScene == SelectScene.customizationScene)
         {
             controller.alertText.color = Color.red;
             controller.alertText.text = "Bu kutu boþ";
@@ -179,9 +184,9 @@ public class AttributeController : MonoBehaviour
                 
                 footIndis = controller.footIndis;
                 headIndis = controller.headIndis;
-                Dash = controller.Dash;
-                Fly = controller.Fly;
-                Ghost = controller.Ghost;
+                Dash = controller.Dash.isOn;
+                Fly = controller.Fly.isOn;
+                Ghost = controller.Ghost.isOn;
                 
                 
                 

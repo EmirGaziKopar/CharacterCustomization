@@ -14,8 +14,9 @@ public class CharacterMovement : MonoBehaviour
     bool isTouch;
     float power;
     Rigidbody2D Ball;
-
-
+    bool fly;
+    bool ghost;
+    bool dash;
 
 
     private void Start()
@@ -24,18 +25,23 @@ public class CharacterMovement : MonoBehaviour
         sayac = 0;
         rigidbody2D = GetComponent<Rigidbody2D>();
         attributeController = GetComponent<AttributeController>(); //Ayný script içerisinde olduðumuz için bu referansý almamýz için yeterli
-
+        
         
         //dash ve ghost gibi özelliklerde buradan eklenecek
         
     }
     private void Update()
     {
+        if(attributeController.okunanBilgi != null)
+        {
+            fly = attributeController.Fly;
+            ghost = attributeController.Ghost;
+            dash = attributeController.Dash;
+            speed = attributeController.okunanBilgi.speed;
+            jump = attributeController.okunanBilgi.jump;
+            power = attributeController.okunanBilgi.power;
 
-        speed = attributeController.okunanBilgi.speed;
-        jump = attributeController.okunanBilgi.jump;
-        power = attributeController.okunanBilgi.power;
-
+        }  
     }
 
     private void FixedUpdate()
@@ -57,11 +63,23 @@ public class CharacterMovement : MonoBehaviour
                 Vector2 a = new Vector2(transform.forward.x, 1f);
                 rigidbody2D.velocity = a * jump;
             }
+            if(fly == true)
+            {
+                Vector2 a = new Vector2(transform.forward.x, 1f);
+                rigidbody2D.velocity = a * jump;
+            }
+            
         }
         if (Input.GetMouseButton(0) && isTouch == true)
         {
             shot();
-        }       
+        }
+
+        if (ghost == true)
+        {
+            Debug.Log("HAYALET");
+            this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -20f);
+        }
     }
 
 

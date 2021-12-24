@@ -86,8 +86,7 @@ public class jsonSave : MonoBehaviour
     {
         try
         {
-            string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim" + buttonDegeri.ToString() + ".json");
-            Debug.Log(jsonVeri);
+            string jsonVeri = System.IO.File.ReadAllText(Application.persistentDataPath + "/Bilgilerim" + buttonDegeri.ToString() + ".json");           
             Bilgiler okunanBilgi = JsonUtility.FromJson<Bilgiler>(jsonVeri);
             return okunanBilgi;
         }
