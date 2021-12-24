@@ -17,16 +17,19 @@ public class CharacterMovement : MonoBehaviour
     bool fly;
     bool ghost;
     bool dash;
+    float dashTime;
 
+    float geciciSpeed;
 
     private void Start()
     {
+        geciciSpeed = speed;
         isShot = false;
         sayac = 0;
         rigidbody2D = GetComponent<Rigidbody2D>();
         attributeController = GetComponent<AttributeController>(); //Ayný script içerisinde olduðumuz için bu referansý almamýz için yeterli
-        
-        
+
+        dashTime = 0.1f;
         //dash ve ghost gibi özelliklerde buradan eklenecek
         
     }
@@ -47,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * 0.01f);
@@ -79,6 +83,32 @@ public class CharacterMovement : MonoBehaviour
         {
             Debug.Log("HAYALET");
             this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -20f);
+        }
+        else
+        {
+            this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        }
+
+        if(dash == true)
+        {
+            if (Input.GetMouseButton(1))
+            {
+                dashTime -= Time.deltaTime;
+                if(dashTime >= 0f)
+                {
+                    
+                    transform.position += new Vector3(Input.GetAxis("Horizontal") * 0.05f * speed, Input.GetAxis("Vertical") * 0.05f * speed, 0f);
+
+                }
+                
+            }
+            else
+            {
+                dashTime = 0.1f;
+            }
+            if(Input.GetMouseButtonUp(1)){
+                dashTime = 0.1f;
+            }
         }
     }
 
